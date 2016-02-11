@@ -139,9 +139,9 @@ class Quadtree<T : QuadtreeElement>
 		var botHeight:Int = boundaries.height - (topHeight + 1);
 		
 		topLeft = getChildTree(new Box(boundaries.x, boundaries.y, leftWidth, topHeight));
-		topRight = getChildTree(new Box(rightStartX,0,rightWidth,topHeight));
+		topRight = getChildTree(new Box(rightStartX,boundaries.y,rightWidth,topHeight));
 		bottomRight = getChildTree(new Box(rightStartX, botStartY,rightWidth, botHeight));
-		bottomLeft = getChildTree(new Box(0,botStartY,leftWidth, botHeight));
+		bottomLeft = getChildTree(new Box(boundaries.x,botStartY,leftWidth, botHeight));
 		
 		balance();		
 	}
